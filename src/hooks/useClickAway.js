@@ -1,10 +1,15 @@
 import useEvent from './useEvent';
 
-function useClickAway(ref, handler, shouldHandle = () => true) {
+// rename handle on handler
+// focus active editor group setting (alt + j)
+function useClickAway(ref, handler, shouldHandle = true) {
   useEvent('mousedown', handleMousedown);
 
   function handleMousedown(event) {
-    if (shouldHandle(event) && !ref.current.contains(event.target)) handler();
+    shouldHandle =
+      shouldHandle instanceof Function ? shouldHandle(event) : shouldHandle;
+
+    if (shouldHandle && !ref.current.contains(event.target)) handler();
   }
 }
 

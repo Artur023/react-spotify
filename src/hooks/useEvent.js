@@ -1,8 +1,13 @@
 import { useEffect } from 'react';
 
-function useEvent(name, handler, shouldHandle = () => true, target = document) {
+function useEvent(name, handler, shouldHandle = true, target = document) {
   useEffect(() => {
-    if (!shouldHandle()) return;
+    shouldHandle =
+      shouldHandle instanceof Function ? shouldHandle() : shouldHandle;
+
+    if (!shouldHandle) return;
+
+    target = target instanceof Function ? target() : target;
 
     target.addEventListener(name, handler);
 

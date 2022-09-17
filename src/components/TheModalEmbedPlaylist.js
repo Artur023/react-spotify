@@ -1,9 +1,10 @@
+import BaseCheckbox from './BaseCheckbox';
 import BaseButton from './BaseButton';
 import BaseModal from './BaseModal';
 
 function TheModalEmbedPlaylist({ onClose: handleClose }) {
   return (
-    <BaseModal classes="w-[660px] bg-neutral-800" onClose={handleClose}>
+    <BaseModal classes="w-[660px] bg-neutral-900" onClose={handleClose}>
       <h1 className="text-3xl pt-8 pb-3 px-8 font-bold leading-relaxed">
         Embed Playlist
       </h1>
@@ -15,14 +16,8 @@ function TheModalEmbedPlaylist({ onClose: handleClose }) {
         </a>
         !
       </div>
-      <div className="flex justify-end items-center text-right pb-6 px-8">
-        <label className="inline-flex items-center gap-2 mr-4">
-          <input
-            type="checkbox"
-            className="text-[#1bd760] bg-transparent rounded-sm border-neutral-500 hover:border-[#1bd760] !ring-0 !ring-offset-0 checked:bg-[#1bd760] checked:bg-checkbox"
-          />
-          <span className="text-sm text-neutral-400">Show code</span>
-        </label>
+      <div className="flex justify-end items-center gap-4 text-right pb-6 px-8">
+        <BaseCheckbox>Show code</BaseCheckbox>
         <BaseButton accent>Copy</BaseButton>
       </div>
     </BaseModal>

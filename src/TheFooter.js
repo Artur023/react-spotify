@@ -4,16 +4,12 @@ function TheFooter(props) {
     return (
         <footer className="mt-auto mb-8 ml-6">
             <ul>
-                <li>
+                {['Cookies', 'Privacy'].map(label =>
+                  <li key={label}>
                     <a href="/" className="text-[11px] hover:underline py-2">
-                        Cookies
+                        {label}
                     </a>
-                </li>
-                <li>
-                    <a href="/" className="text-[11px] hover:underline py-2">
-                        Privacy
-                    </a>
-                </li>
+                  </li>)}
             </ul>
         </footer>
     );
